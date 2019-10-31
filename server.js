@@ -1,13 +1,24 @@
 
 // Dependencies
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 
 
 // Set up the Express App
-var app = express();
-var PORT = 3000;
+const app = express();
+const PORT = 3000;
 
 // Set up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+app.get('/', (req, res, next) => {
+    res.send('Hello world!');
+});
+
+app.listen(PORT, function(){
+
+    console.log('App listening on: http://localhost:'+PORT)
+
+});
