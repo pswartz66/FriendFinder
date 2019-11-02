@@ -29,6 +29,10 @@ body {
     margin-left: auto;
 }
 
+.home {
+    margin: 0;
+}
+
 .footer {
     margin-top: 7px;
 }
