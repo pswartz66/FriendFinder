@@ -16,9 +16,13 @@ app.use(express.json());
 // serve static css file in folder before css folder
 app.use(express.static('app'));
 
+// require the api route; call before html routes
+require('./app/routing/apiRoutes.js')(app);
 
 // require the html routes
 require('./app/routing/htmlRoutes.js')(app);
+
+
 
 
 app.listen(PORT, function(){
