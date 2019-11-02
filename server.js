@@ -13,12 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.get('/', (req, res, next) => {
-    res.send('Hello world!');
-});
+// serve static css file in folder before css folder
+app.use(express.static('app'));
+
+
+// require the html routes
+require('./app/routing/htmlRoutes.js')(app);
+
 
 app.listen(PORT, function(){
-
     console.log('App listening on: http://localhost:'+PORT)
-
 });
