@@ -3,11 +3,15 @@
 let surveyArray = [
 
     {
-        question1: 1,
-        question2: 1,
-        question3: 3,
-        question4: 1,
-        question5: 3,
+        "name":"Phil",
+        "photo":"https://",
+        "scores":[
+            1,
+            1,
+            3,
+            1,
+            3
+        ]
 
     }
 
