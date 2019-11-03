@@ -8,6 +8,8 @@ module.exports = function(app) {
     // from friends.js file
     app.get('/api/friendslist', (req, res) => {
 
+        // console.log(req.body);
+
         res.json(friendsData);
 
     });
@@ -18,6 +20,8 @@ module.exports = function(app) {
     app.post('/api/friendslist', function(req, res){
 
         friendsData.push(req.body);
+
+        console.log(req.body);
 
         res.json(friendsData);
         

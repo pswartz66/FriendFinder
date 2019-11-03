@@ -163,23 +163,24 @@
 
 
     <!-- JQuery links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- <script src="../data/friends.js"></script> -->
 
     <script>
 
         let scores = [];
+        let numberScoresArr = [];
+
         let surveyObj = {};
 
         let questionState = false;
@@ -192,8 +193,10 @@
             if (scores.length === 0) {
 
                 scores.push($(this).text());
+                numberScoresArr.push(parseInt(scores[0]));
 
                 console.log(scores);
+                console.log(numberScoresArr);
 
             }
 
@@ -206,6 +209,8 @@
             if (scores.length === 1) {
 
                 scores.push($(this).text());
+                numberScoresArr.push(parseInt(scores[1]));
+
 
                 console.log(scores);
 
@@ -220,6 +225,8 @@
             if (scores.length === 2) {
 
                 scores.push($(this).text());
+                numberScoresArr.push(parseInt(scores[2]));
+
 
                 console.log(scores);
 
@@ -234,6 +241,8 @@
             if (scores.length === 3) {
 
                 scores.push($(this).text());
+                numberScoresArr.push(parseInt(scores[3]));
+
 
                 console.log(scores);
 
@@ -249,13 +258,14 @@
             if (scores.length === 4) {
 
                 scores.push($(this).text());
+                numberScoresArr.push(parseInt(scores[4]));
+
 
                 console.log(scores);
 
             }
 
         });
-
 
 
         $('#submit').on("click", function () {
@@ -268,8 +278,9 @@
             let photo = $('#photo').val().trim();
             surveyObj["photo"] = photo;
 
+            console.log(numberScoresArr);
 
-            surveyObj["scores"] = scores;
+            surveyObj["scores"] = numberScoresArr;
 
 
             $.post("/api/friendslist", surveyObj,
@@ -293,9 +304,7 @@
 
                 });
 
-
         });
-
 
 
     </script>
