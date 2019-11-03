@@ -176,13 +176,11 @@
 
 
 
-
-
     <script>
 
         let scores = [];
         let surveyObj = {
-            scoresArr: [, , , ,],
+            
         };
 
         let questionState = false;
@@ -272,10 +270,29 @@
             surveyObj["fPhoto"] = photo;
 
 
-            surveyObj.scoresArr.push(scores);
+            surveyObj["scores"] = scores;
 
-            console.log(surveyObj);
 
+            $.post("/api/friendslist", surveyObj,
+                function (data) {
+
+                    // console.log(surveyObj);
+
+                    // If a friend is available... tell user it's been added.
+                    if (data) {
+                        console.log("A friend was added to the list");
+                    }
+
+                    // If no friend was added then debug as to why someone wasn't added.
+                    else {
+                        console.log("No one was added to the friendslist");
+                    }
+
+                    // Clear the form when submitting
+                    $('#name').val("");
+                    $('#photo').val("");
+
+                });
 
         });
 

@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+const surveyResponse = [];
+
 // serve static css file in folder before css folder
 app.use(express.static('app'));
 
@@ -23,6 +25,23 @@ require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 
 
+app.get("/api/friendslist", function(req, res){
+
+    return res.json(surveyResponse);
+
+});
+
+app.post("/api/friendslist", function(req, res){
+
+    console.log(req.body);
+
+    surveyResponse.push(req.body);
+
+    console.log(surveyResponse);
+
+    res.end();
+
+});
 
 
 app.listen(PORT, function(){
