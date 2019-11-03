@@ -23,7 +23,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-        </script>
+    </script>
 
 
     <!-- Font Awesome Glyphicons -->
@@ -64,12 +64,12 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select an option
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1 (Strongly Disagree)</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-                <a class="dropdown-item" href="#">4</a>
-                <a class="dropdown-item" href="#">5 (Strongly Agree)</a>
+            <div class="dropdown-menu" id="Q1" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">2</a>
+                <a class="dropdown-item">3</a>
+                <a class="dropdown-item">4</a>
+                <a class="dropdown-item">5 (Strongly Agree)</a>
             </div>
         </div>
         <br>
@@ -83,12 +83,12 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select an option
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1 (Strongly Disagree)</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-                <a class="dropdown-item" href="#">4</a>
-                <a class="dropdown-item" href="#">5 (Strongly Agree)</a>
+            <div class="dropdown-menu" id="Q2" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">2</a>
+                <a class="dropdown-item">3</a>
+                <a class="dropdown-item">4</a>
+                <a class="dropdown-item">5 (Strongly Agree)</a>
             </div>
         </div>
         <br>
@@ -103,12 +103,12 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select an option
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1 (Strongly Disagree)</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-                <a class="dropdown-item" href="#">4</a>
-                <a class="dropdown-item" href="#">5 (Strongly Agree)</a>
+            <div class="dropdown-menu" id="Q3" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">2</a>
+                <a class="dropdown-item">3</a>
+                <a class="dropdown-item">4</a>
+                <a class="dropdown-item">5 (Strongly Agree)</a>
             </div>
         </div>
         <br>
@@ -122,12 +122,12 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select an option
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1 (Strongly Disagree)</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-                <a class="dropdown-item" href="#">4</a>
-                <a class="dropdown-item" href="#">5 (Strongly Agree)</a>
+            <div class="dropdown-menu" id="Q4" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">2</a>
+                <a class="dropdown-item">3</a>
+                <a class="dropdown-item">4</a>
+                <a class="dropdown-item">5 (Strongly Agree)</a>
             </div>
         </div>
         <br>
@@ -141,12 +141,12 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select an option
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1 (Strongly Disagree)</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-                <a class="dropdown-item" href="#">4</a>
-                <a class="dropdown-item" href="#">5 (Strongly Agree)</a>
+            <div class="dropdown-menu" id="Q5" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">2</a>
+                <a class="dropdown-item">3</a>
+                <a class="dropdown-item">4</a>
+                <a class="dropdown-item">5 (Strongly Agree)</a>
             </div>
         </div>
         <br>
@@ -170,14 +170,119 @@
         </footer>
 
 
-    <div>
+        <div>
 
 
 
 
 </body>
 
+<script>
 
+    let scores = [];
+    let surveyObj = {
+        scoresArr: [, , , ,],
+    };
+
+    let questionState = false;
+
+
+    $('#Q1 > a').on("click", function () {
+
+        event.preventDefault();
+
+        if (scores.length === 0) {
+
+            scores.push($(this).text());
+
+            console.log(scores);
+
+        }
+
+    });
+
+    $('#Q2 > a').on("click", function () {
+
+        event.preventDefault();
+
+        if (scores.length === 1) {
+
+            scores.push($(this).text());
+
+            console.log(scores);
+
+        }
+
+    });
+
+    $('#Q3 > a').on("click", function () {
+
+        event.preventDefault();
+
+        if (scores.length === 2) {
+
+            scores.push($(this).text());
+
+            console.log(scores);
+
+        }
+
+    });
+
+    $('#Q4 > a').on("click", function () {
+
+        event.preventDefault();
+
+        if (scores.length === 3) {
+
+            scores.push($(this).text());
+
+            console.log(scores);
+
+        }
+
+    });
+
+
+    $('#Q5 > a').on("click", function () {
+
+        event.preventDefault();
+
+        if (scores.length === 4) {
+
+            scores.push($(this).text());
+
+            console.log(scores);
+
+        }
+
+    });
+
+
+
+    $('#submit').on("click", function () {
+
+        event.preventDefault();
+
+        let name = $('#name').val().trim();
+        surveyObj["fName"] = name;
+
+        let photo = $('#photo').val().trim();
+        surveyObj["fPhoto"] = photo;
+
+        
+        surveyObj.scoresArr.push(scores);
+
+        console.log(surveyObj);
+
+
+    });
+
+
+
+
+
+</script>
 
 
 </html>

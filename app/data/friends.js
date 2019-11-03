@@ -1,7 +1,6 @@
 
 
 let surveyArray = [
-
     {
         "name":"Phil",
         "photo":"https://",
@@ -12,10 +11,14 @@ let surveyArray = [
             1,
             3
         ]
-
     }
-
 ];
+
+
+
+
+
+
 
 module.exports = surveyArray;
 
