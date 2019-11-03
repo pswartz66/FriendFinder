@@ -179,9 +179,7 @@
     <script>
 
         let scores = [];
-        let surveyObj = {
-            
-        };
+        let surveyObj = {};
 
         let questionState = false;
 
@@ -264,10 +262,10 @@
             event.preventDefault();
 
             let name = $('#name').val().trim();
-            surveyObj["fName"] = name;
+            surveyObj["name"] = name;
 
             let photo = $('#photo').val().trim();
-            surveyObj["fPhoto"] = photo;
+            surveyObj["photo"] = photo;
 
 
             surveyObj["scores"] = scores;
@@ -293,6 +291,8 @@
                     $('#photo').val("");
 
                 });
+
+
 
         });
 

@@ -19,7 +19,10 @@ module.exports = function(app) {
     app.post('/api/friendslist', function(req, res){
 
         friendsData.push(req.body);
-        res.json(true);
+
+        res.json(friendsData);
+        
+        // res.json(true);
 
     });
 
