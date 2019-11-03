@@ -18,6 +18,7 @@ const surveyResponse = [];
 // serve static css file in folder before css folder
 app.use(express.static('app'));
 
+
 // require the api route; call before html routes
 require('./app/routing/apiRoutes.js')(app);
 

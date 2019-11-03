@@ -2,7 +2,6 @@
 const friendsData = require('../data/friends.js');
 
 
-
 module.exports = function(app) {
 
     // initial get response gives the client the sample object
