@@ -15,10 +15,7 @@ let surveyArray = [
 ];
 
 
-
-
-
-
-
 module.exports = surveyArray;
+
+
 

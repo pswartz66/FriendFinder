@@ -22,9 +22,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Font Awesome Glyphicons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -54,6 +53,9 @@
 
         <hr>
 
+        <p>All questions follow 1 (Strongly Disagree) to 5 (Strongly Agree)</p>
+
+        <hr>
 
         <!-- Question 1 -->
         <h3><strong>Question 1</strong></h3>
@@ -65,11 +67,11 @@
                 Select an option
             </button>
             <div class="dropdown-menu" id="Q1" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">1</a>
                 <a class="dropdown-item">2</a>
                 <a class="dropdown-item">3</a>
                 <a class="dropdown-item">4</a>
-                <a class="dropdown-item">5 (Strongly Agree)</a>
+                <a class="dropdown-item">5</a>
             </div>
         </div>
         <br>
@@ -84,11 +86,11 @@
                 Select an option
             </button>
             <div class="dropdown-menu" id="Q2" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">1</a>
                 <a class="dropdown-item">2</a>
                 <a class="dropdown-item">3</a>
                 <a class="dropdown-item">4</a>
-                <a class="dropdown-item">5 (Strongly Agree)</a>
+                <a class="dropdown-item">5</a>
             </div>
         </div>
         <br>
@@ -104,11 +106,11 @@
                 Select an option
             </button>
             <div class="dropdown-menu" id="Q3" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">1</a>
                 <a class="dropdown-item">2</a>
                 <a class="dropdown-item">3</a>
                 <a class="dropdown-item">4</a>
-                <a class="dropdown-item">5 (Strongly Agree)</a>
+                <a class="dropdown-item">5</a>
             </div>
         </div>
         <br>
@@ -123,11 +125,11 @@
                 Select an option
             </button>
             <div class="dropdown-menu" id="Q4" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">1</a>
                 <a class="dropdown-item">2</a>
                 <a class="dropdown-item">3</a>
                 <a class="dropdown-item">4</a>
-                <a class="dropdown-item">5 (Strongly Agree)</a>
+                <a class="dropdown-item">5</a>
             </div>
         </div>
         <br>
@@ -142,11 +144,11 @@
                 Select an option
             </button>
             <div class="dropdown-menu" id="Q5" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item">1 (Strongly Disagree)</a>
+                <a class="dropdown-item">1</a>
                 <a class="dropdown-item">2</a>
                 <a class="dropdown-item">3</a>
                 <a class="dropdown-item">4</a>
-                <a class="dropdown-item">5 (Strongly Agree)</a>
+                <a class="dropdown-item">5</a>
             </div>
         </div>
         <br>
@@ -170,119 +172,117 @@
         </footer>
 
 
-        <div>
+    </div>
 
 
 
+
+
+    <script>
+
+        let scores = [];
+        let surveyObj = {
+            scoresArr: [, , , ,],
+        };
+
+        let questionState = false;
+
+
+        $('#Q1 > a').on("click", function () {
+
+            event.preventDefault();
+
+            if (scores.length === 0) {
+
+                scores.push($(this).text());
+
+                console.log(scores);
+
+            }
+
+        });
+
+        $('#Q2 > a').on("click", function () {
+
+            event.preventDefault();
+
+            if (scores.length === 1) {
+
+                scores.push($(this).text());
+
+                console.log(scores);
+
+            }
+
+        });
+
+        $('#Q3 > a').on("click", function () {
+
+            event.preventDefault();
+
+            if (scores.length === 2) {
+
+                scores.push($(this).text());
+
+                console.log(scores);
+
+            }
+
+        });
+
+        $('#Q4 > a').on("click", function () {
+
+            event.preventDefault();
+
+            if (scores.length === 3) {
+
+                scores.push($(this).text());
+
+                console.log(scores);
+
+            }
+
+        });
+
+
+        $('#Q5 > a').on("click", function () {
+
+            event.preventDefault();
+
+            if (scores.length === 4) {
+
+                scores.push($(this).text());
+
+                console.log(scores);
+
+            }
+
+        });
+
+
+
+        $('#submit').on("click", function () {
+
+            event.preventDefault();
+
+            let name = $('#name').val().trim();
+            surveyObj["fName"] = name;
+
+            let photo = $('#photo').val().trim();
+            surveyObj["fPhoto"] = photo;
+
+
+            surveyObj.scoresArr.push(scores);
+
+            console.log(surveyObj);
+
+
+        });
+
+
+
+    </script>
 
 </body>
-
-<script>
-
-    let scores = [];
-    let surveyObj = {
-        scoresArr: [, , , ,],
-    };
-
-    let questionState = false;
-
-
-    $('#Q1 > a').on("click", function () {
-
-        event.preventDefault();
-
-        if (scores.length === 0) {
-
-            scores.push($(this).text());
-
-            console.log(scores);
-
-        }
-
-    });
-
-    $('#Q2 > a').on("click", function () {
-
-        event.preventDefault();
-
-        if (scores.length === 1) {
-
-            scores.push($(this).text());
-
-            console.log(scores);
-
-        }
-
-    });
-
-    $('#Q3 > a').on("click", function () {
-
-        event.preventDefault();
-
-        if (scores.length === 2) {
-
-            scores.push($(this).text());
-
-            console.log(scores);
-
-        }
-
-    });
-
-    $('#Q4 > a').on("click", function () {
-
-        event.preventDefault();
-
-        if (scores.length === 3) {
-
-            scores.push($(this).text());
-
-            console.log(scores);
-
-        }
-
-    });
-
-
-    $('#Q5 > a').on("click", function () {
-
-        event.preventDefault();
-
-        if (scores.length === 4) {
-
-            scores.push($(this).text());
-
-            console.log(scores);
-
-        }
-
-    });
-
-
-
-    $('#submit').on("click", function () {
-
-        event.preventDefault();
-
-        let name = $('#name').val().trim();
-        surveyObj["fName"] = name;
-
-        let photo = $('#photo').val().trim();
-        surveyObj["fPhoto"] = photo;
-
-        
-        surveyObj.scoresArr.push(scores);
-
-        console.log(surveyObj);
-
-
-    });
-
-
-
-
-
-</script>
-
 
 </html>
