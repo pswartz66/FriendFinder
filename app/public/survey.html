@@ -173,7 +173,6 @@
                     <div class="modal-body">
                         <h2 id="match-name"></h2>
                         <img id="match-img">
-                        <p>Modal body text goes here.</p>
                     </div>
                     <hr>
                     <div class="modal-footer">
@@ -298,56 +297,58 @@
         // WRAP SUBMIT BUTTON INSIDE IF LOGIC TO MAKE SURE THE USER
         // HAS SELECTED AN ASNWER TO EACH OF THE QUESTIONS
 
-        if (numberScoresArr === undefined || numberScoresArr.length == 0) {
+        $('#submit').on("click", function () {
 
-            $('#submit').on("click", function () {
+            event.preventDefault();
 
-                event.preventDefault();
+            let name = $('#name').val().trim();
+            surveyObj["name"] = name;
 
-                let name = $('#name').val().trim();
-                surveyObj["name"] = name;
+            let photo = $('#photo').val().trim();
+            surveyObj["photo"] = photo;
 
-                let photo = $('#photo').val().trim();
-                surveyObj["photo"] = photo;
+            console.log(numberScoresArr);
 
-                console.log(numberScoresArr);
-
-                surveyObj["scores"] = numberScoresArr;
+            surveyObj["scores"] = numberScoresArr;
 
 
-                $.post("/api/friendslist", surveyObj,
-                    function (data) {
+            $.post("/api/friendslist", surveyObj,
+                function (data) {
 
-                        // console.log(surveyObj);
+                    // console.log(surveyObj);
 
-                        // If a friend is available... tell user it's been added.
-                        if (data) {
-                            console.log("A friend was added to the list");
-                        }
-
-                        // If no friend was added then debug as to why someone wasn't added.
-                        else {
-                            console.log("No one was added to the friendslist");
-                        }
-
-                        // Clear the form when submitting
-                        $('#name').val("");
-                        $('#photo').val("");
+                    // If a friend is available... tell user it's been added.
+                    if (data) {
+                        console.log("A friend was added to the list");
 
                         // append the friends name with the closest match to the modal
                         // append the friends image with the closest match to the modal
-
-
+                        // in the apiRoutes file were sending name back to the data obj via a json string
+                        $("#match-name").text(data.name);
+                        $("#match-img").attr("src", data.photo);
 
                         // display modal of closest match
                         $('#results-modal').modal('toggle');
 
+                    }
 
-                    });
+                    // If no friend was added then debug as to why someone wasn't added.
+                    else {
+                        console.log("No one was added to the friendslist" +
+                            '\n' + ' Please fill out answers before submitting');
 
-            });
+                    }
 
-        }
+                    // Clear the form when submitting
+                    $('#name').val("");
+                    $('#photo').val("");
+
+
+                });
+
+        });
+
+
 
 
     </script>
