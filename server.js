@@ -34,8 +34,6 @@ app.get("/api/friendslist", function(req, res){
 
 app.post("/api/friendslist", function(req, res){
 
-    // console.log(req.body);
-
     surveyResponse.push(req.body);
 
     console.log(surveyResponse);

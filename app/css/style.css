@@ -41,15 +41,43 @@ body {
     margin-top: 20px;
 }
 
-#dropdownMenuButton {
+#dropdownMenuButton-one {
     font-size: 14px;
     opacity: .8;
+    width: 140px!important;
+}
+
+#dropdownMenuButton-two {
+    font-size: 14px;
+    opacity: .8;
+    width: 140px!important;
+}
+
+#dropdownMenuButton-three {
+    font-size: 14px;
+    opacity: .8;
+    width: 140px!important;
+}
+
+#dropdownMenuButton-four {
+    font-size: 14px;
+    opacity: .8;
+    width: 140px!important;
+}
+
+#dropdownMenuButton-five {
+    font-size: 14px;
+    opacity: .8;
+    width: 140px!important;
 }
 
 #match-img {
-
     overflow: none;
     height: 140px;
     width: 140px;
-
 }
+
+
+
+
+
